@@ -1,16 +1,5 @@
 //add a click handler to each card using jquery(chosen) or onclick-attribute
-$(function () {
-    //global variables
-    first_card_clicked = null;
-    second_card_clicked = null;
-    total_possible_matches = 9;
-    user_click = true;
-    matches = 0;
-    attempts = 0;
-    accuracy = 0;
-    games_played = 0;
-
-
+$(function () {  //document ready function
     $('.card').click(function () {
         randomize();
         card_clicked(this);
@@ -20,13 +9,61 @@ $(function () {
        games_played++;
        reset_stats();
        display_stats();
+       remove_shuffle()
        randomize();
+
        $('.gameover').hide();
        $('.card').find('.back').show();
     });
 });
 
+//global variables
+var first_card_clicked = null;
+var second_card_clicked = null;
+var total_possible_matches = 9;
+var user_click = true;
+var matches = 0;
+var attempts = 0;
+var accuracy = 0;
+var games_played = 0;
+var random_mug = [];
 
+
+function randomize() {
+
+    var card_faces = [
+        "images/bowie.jpg",
+        "images/cashfolsom.jpg",
+        "images/Frank-Sinatra.png",
+        "images/lohan.jpg",
+        "images/michmug.jpg",
+        "images/mug_prince.jpg",
+        "images/nolte.jpg",
+        "images/OJ.jpg",
+        "images/snoop.jpg",
+        "images/bowie.jpg",
+        "images/cashfolsom.jpg",
+        "images/Frank-Sinatra.png",
+        "images/lohan.jpg",
+        "images/michmug.jpg",
+        "images/mug_prince.jpg",
+        "images/OJ.jpg",
+        "images/snoop.jpg"
+    ];
+    var card_faces_length = card_faces.length;
+
+
+    for (var i = 0; i < card_faces_length; i++) {
+        var current_length = card_faces.length;
+        var num = Math.floor(Math.random() * current_length);
+        var temp = (card_faces.splice(num, 1));
+        random_mug.push(temp[0]);
+    }
+    for (var j = 0; j < random_mug.length; j++) {
+        $('.card:nth-child(' + (j + 1) + ')').prepend('<div class="front"><img src="' + random_mug[j] + '"></div>');
+    }
+}
+console.log(random_mug);
 
 function card_clicked(das_card) {
     if (!user_click) {          //added a flag variable for the purpose of denying a user's ability to click more than 2 cards
@@ -66,8 +103,8 @@ function card_clicked(das_card) {
                 second_card_clicked = null;//reset second_card_clicked to null
                 user_click = true; //set the flag variable to true when condition changed
                 return (timerId);//returns the variable timerId and ends the function and cards flip back after to seconds
-            }, 2000); // 2000 = 2 seconds
-            //dan end
+            }, 800);
+
         }  //end of else on line 42
     } //end of else on line 29
 }  // end of function card_clicked
@@ -92,6 +129,10 @@ function reset_stats(){
     display_stats();
 }
 
+function remove_shuffle() {
+    $('#game-area div .front').remove();
+    random_mug = [];
+}
 
 
 
