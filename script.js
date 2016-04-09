@@ -6,14 +6,14 @@ $(function () {  //document ready function
         return(card_clicked);
     });
     $('.reset').click(function () {  //declared reset button function
-       games_played++;
-       reset_stats();
-       display_stats();
-       remove_shuffle()
-       randomize();
+        games_played++;
+        reset_stats();
+        display_stats();
+        remove_shuffle()
+        randomize();
 
-       $('.gameover').hide();
-       $('.card').find('.back').show();
+        $('.gameover').hide();
+        $('.card').find('.back').show();
     });
 });
 
@@ -47,6 +47,7 @@ function randomize() {
         "images/lohan.jpg",
         "images/michmug.jpg",
         "images/mug_prince.jpg",
+        "images/nolte.jpg",
         "images/OJ.jpg",
         "images/snoop.jpg"
     ];
@@ -87,7 +88,7 @@ function card_clicked(das_card) {
             first_card_clicked = null; // reset first and second card clicked variables
             second_card_clicked = null;
             if (matches == total_possible_matches) {
-              $('.gameover').show();
+                $('.gameover').show();
             }
         } else {
 
@@ -133,8 +134,5 @@ function remove_shuffle() {
     $('#game-area div .front').remove();
     random_mug = [];
 }
-
-
-
 
 

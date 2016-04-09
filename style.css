@@ -1,8 +1,9 @@
 /*CSS FOR GAME LAYOUT*/
 @font-face {
-    font-family: CookCountyJailhouse-Regular;
-    src: url(images/CookCountyJailhouse-Regular.ttf);
+    font-family: Saddlebag;
+    src: url(images/Saddlebag.ttf);
 }
+
 body {
     background: url("images/concordstate.jpg");
     background-size: cover;
@@ -18,7 +19,7 @@ header {
     width: 1198px;
     height: 25%;
     background-color: rgba(0, 0, 0, .3);
-    font-family: CookCountyJailhouse-Regular;
+    font-family: Saddlebag;
     font-size: 2vmax;
     color: white;
     padding:.1%;
@@ -53,7 +54,7 @@ a, a:visited {
     text-align:center;
     line-height:4;
     display:inline-block;
-    font-family: CookCountyJailhouse-Regular;
+    font-family: Saddlebag;
     font-size: 16px;
     text-transform: uppercase;
 }
@@ -70,8 +71,8 @@ a, a:visited {
 
 .card {
     display: inline-block;
-    width: 150px;
-    height: 200px;
+    width: 12vw;
+    height: 25vh;
     position: relative;
     margin: 5px;
     overflow: hidden;
@@ -97,7 +98,7 @@ img {
 }
 
 .gameover{
-    top: 6%;
+    top: 25%;
     text-align: center;
     position: absolute;
     display: none;
@@ -106,5 +107,17 @@ img {
     color: #674517;
     background-color: rgba(0, 0, 0, .8);
     width: 65%;
+    font-family: Saddlebag;
 }
 
+.reset {
+    font-family: Saddlebag;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2vmax;
+    cursor: pointer;
+}
