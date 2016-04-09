@@ -103,6 +103,7 @@ function card_clicked(das_card) {
             if (matches == total_possible_matches) {
                 $('.gameover').show();
                 escape.play();
+                escape.volume=0.6;
                 folsom.pause();
             }
         } else {
