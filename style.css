@@ -1,4 +1,8 @@
 /*CSS FOR GAME LAYOUT*/
+@font-face {
+    font-family: CookCountyJailhouse-Regular;
+    src: url(images/CookCountyJailhouse-Regular.ttf);
+}
 body {
     background: url("images/concordstate.jpg");
     background-size: cover;
@@ -14,8 +18,8 @@ header {
     width: 1198px;
     height: 25%;
     background-color: rgba(0, 0, 0, .3);
-    font-family: Arial;
-    font-size: 16px;
+    font-family: CookCountyJailhouse-Regular;
+    font-size: 2vmax;
     color: white;
     padding:.1%;
 
@@ -49,7 +53,7 @@ a, a:visited {
     text-align:center;
     line-height:4;
     display:inline-block;
-    font-family: Arial;
+    font-family: CookCountyJailhouse-Regular;
     font-size: 16px;
     text-transform: uppercase;
 }

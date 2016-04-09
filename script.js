@@ -138,4 +138,3 @@ function remove_shuffle() {
 
 
 
-
