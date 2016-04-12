@@ -9,7 +9,11 @@ $(function () {  //document ready function
     });
 
     $('.reset').click(function () {  //declared reset button function
-        $('.card').find('.back').show();
+        //$('.card').find('.back').show();
+        $(".card").find(".back").css({
+            "-webkit-transform": "perspective( 600px ) rotateY( 0deg )",
+            "transform": "perspective( 600px ) rotateY( 0deg )"
+        });
         $('.gameover').hide();
         games_played++;
         reset_stats();
@@ -83,8 +87,15 @@ function card_clicked(das_card) {
         return;
     }
     //shows face of card (flips back to face)
-    $(das_card).find('.back').hide();
-
+    //$(das_card).find('.back').hide();
+    $(das_card).find(".back").css({
+        "-webkit-transform": "perspective( 600px ) rotateY( 180deg )",
+        "transform": "perspective( 600px ) rotateY( -180deg )"
+    });
+    $(das_card).find(".front").css({
+        "-webkit-transform": "perspective( 600px ) rotateY( 0deg )",
+        "transform": "perspective( 600px ) rotateY( 0deg )"
+    });
     //checks if first card was clicked
     if (first_card_clicked == null) { //check if first_card_clicked == null
         first_card_clicked = $(das_card)
@@ -114,8 +125,32 @@ function card_clicked(das_card) {
             display_stats(); //calls display_stats function which relays updated stat information
             //sets the unmatched cards to show the back again after two seconds
             var timerId = setTimeout(function () { //declares function inside variable timerId
-                $(first_card_clicked).find('.back').show(); //displays the back card after .8 seconds
-                $(second_card_clicked).find('.back').show(); //displays the back  card after .8 seconds
+                //$(first_card_clicked).find('.back').show(); //displays the back card after .8 seconds
+                //$(second_card_clicked).find('.back').show(); //displays the back  card after .8 seconds
+                second_card_clicked.find('.back').css({
+                    "transform": "rotateY(0)",
+                    "transform-style": "preserve-3d",
+                    "transition": "transform .2s linear 0s",
+                    "transition": "-webkit-transform .2s linear 0s"
+                });
+                second_card_clicked.find('.front').css({
+                    "transform": "rotateY(-180deg)",
+                    "transform-style": "preserve-3d",
+                    "transition": "transform .2s linear 0s",
+                    "transition": "-webkit-transform .2s linear 0s"
+                });
+                first_card_clicked.find('.back').css({
+                    "transform": "rotateY(0)",
+                    "transform-style": "preserve-3d",
+                    "transition": "transform .2s linear 0s",
+                    "transition": "-webkit-transform .2s linear 0s"
+                });
+                first_card_clicked.find('front').css({
+                    "transform": "rotateY(-180deg)",
+                    "transform-style": "preserve-3d",
+                    "transition": "transform .2s linear 0s",
+                    "transition": "-webkit-transform .2s linear 0s"
+                });
                 first_card_clicked = null; //reset first_card_clicked to null
                 second_card_clicked = null;//reset second_card_clicked to null
                 user_click = true; //set the flag variable to true when condition changed
