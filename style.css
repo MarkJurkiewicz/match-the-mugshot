@@ -79,16 +79,6 @@ a, a:visited {
     cursor:pointer;
 }
 
-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 90%;
-    width: 90%;
-    border-radius: 20px;
-
-}
-
 #reset {
     margin: 20px auto 0 auto;
     width: 120px;
@@ -97,16 +87,16 @@ img {
     position:relative;
 }
 
-.gameover{
-    top: 25%;
+.gameover {
+    top: 15%;
     text-align: center;
     position: absolute;
     display: none;
-    margin-left: 14%;
+    margin-left: 13%;
     font-size: 117px;
     color: #674517;
     background-color: rgba(0, 0, 0, .8);
-    width: 65%;
+    width: 78%;
     font-family: Saddlebag;
 }
 
@@ -129,6 +119,7 @@ img {
     height: 100%;
     width: 100%;
     border-radius: 25px;
+
 }
 .card > .back, .card > .front {
     -webkit-backface-visibility: hidden;
